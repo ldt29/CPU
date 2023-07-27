@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_cpu_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_cpu" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1351660000001fs"></ZoomEndTime>
+      <Cursor1Time time="68237037000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="65"></NameColumnWidth>
+      <ValueColumnWidth column_width="100"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/test_cpu/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_cpu/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_cpu/cpu_0/pc_on_brk/pc_in" type="array">
+      <obj_property name="ElementShortName">pc_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_cpu/cpu_0/reg_file/rf_data[22]" type="array">
+      <obj_property name="ElementShortName">[22][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_cpu/cpu_0/bus/ssd_0/din" type="array">
+      <obj_property name="ElementShortName">din[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_cpu/cpu_0/bus/ssd_0/ssd" type="array">
+      <obj_property name="ElementShortName">ssd[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ssd[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_cpu/cpu_0/bus/ssd_0/mark" type="array">
+      <obj_property name="ElementShortName">mark[1:0]</obj_property>
+      <obj_property name="ObjectShortName">mark[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_cpu/cpu_0/bus/ssd_0/clk_1K" type="logic">
+      <obj_property name="ElementShortName">clk_1K</obj_property>
+      <obj_property name="ObjectShortName">clk_1K</obj_property>
+   </wvobject>
+</wave_config>

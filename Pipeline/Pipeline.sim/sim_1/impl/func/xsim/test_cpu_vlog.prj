@@ -1,0 +1,32 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"test_cpu_func_impl.v" \
+"../../../../../src/designs/cpu/ALU.v" \
+"../../../../../src/designs/cpu/ALUControl.v" \
+"../../../../../src/designs/cpu/BranchTest.v" \
+"../../../../../src/designs/cpu/Bus.v" \
+"../../../../../src/designs/cpu/CPU.v" \
+"../../../../../src/designs/cpu/Control.v" \
+"../../../../../src/designs/cpu/DataMemory.v" \
+"../../../../../src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" \
+"../../../../../src/designs/cpu/ForwardControl.v" \
+"../../../../../src/designs/cpu/HazardUnit.v" \
+"../../../../../src/designs/cpu/pipeline_registers/ID_EX_Reg.v" \
+"../../../../../src/designs/cpu/pipeline_registers/IF_ID_Reg.v" \
+"../../../../../src/designs/cpu/InstructionMemory.v" \
+"../../../../../src/designs/external_devices/LED.v" \
+"../../../../../src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" \
+"../../../../../src/designs/cpu/PCOnBreak.v" \
+"../../../../../src/designs/cpu/ProgramCounter.v" \
+"../../../../../src/designs/cpu/RegisterFile.v" \
+"../../../../../src/designs/external_devices/SSD.v" \
+"../../../../../src/designs/external_devices/SysTick.v" \
+"../../../../../src/designs/external_devices/Timer.v" \
+"../../../../../src/designs/external_devices/UART.v" \
+"../../../../../src/designs/external_devices/UART_Rx.v" \
+"../../../../../src/designs/external_devices/UART_Tx.v" \
+"../../../../../src/designs/cpu/clk_gen.v" \
+"../../../../../src/testbenches/test_cpu.v" \
+
+# Do not sort compile order
+nosort

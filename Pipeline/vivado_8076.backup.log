@@ -1,0 +1,1846 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Jul 27 22:15:39 2023
+# Process ID: 8076
+# Current directory: E:/Courses/CPU/Pipeline
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24640 E:\Courses\CPU\Pipeline\Pipeline.xpr
+# Log file: E:/Courses/CPU/Pipeline/vivado.log
+# Journal file: E:/Courses/CPU/Pipeline\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/Courses/CPU/Pipeline/Pipeline.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Vivado/Vivado/2017.4/data/ip'.
+update_compile_order -fileset sources_1
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/0ABC01A
+set_property PROGRAM.FILE {E:/Courses/CPU/Pipeline/Pipeline.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1435] Device xc7a35t (JTAG device index = 0) is not programmed (DONE status = 0).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/Courses/CPU/Pipeline/Pipeline.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 539 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Device 21-403] Loading part xc7a35tfgg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+open_run: Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 1896.746 ; gain = 402.594
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 22:25:21 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+WARNING: [VRFC 10-278] actual bit length 14 differs from formal bit length 13 for port ssd [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:31]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_cpu_behav -key {Behavioral:sim_1:Functional:test_cpu} -tclbatch {test_cpu.tcl} -view {E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg
+source test_cpu.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_cpu_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 2360.465 ; gain = 0.000
+run 5 ms
+run: Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 2360.465 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 22:35:24 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 22:36:43 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 523 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 22:39:34 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+launch_runs impl_1 -jobs 4
+[Thu Jul 27 22:40:53 2023] Launched impl_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/impl_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 523 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+close_design
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 515 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/.Xil/Vivado-8076-LAPTOP-IPU5LKLQ/dcp5/top.xdc]
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/.Xil/Vivado-8076-LAPTOP-IPU5LKLQ/dcp5/top.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.435 . Memory (MB): peak = 2429.684 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.435 . Memory (MB): peak = 2429.684 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 523 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+set_property top CPU [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 22:47:20 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 535 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+set_property top Bus [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 22:49:27 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 255 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+set_property top SSD [current_fileset]
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 22:52:03 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 22:55:16 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_cpu_behav -key {Behavioral:sim_1:Functional:test_cpu} -tclbatch {test_cpu.tcl} -view {E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg
+source test_cpu.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_cpu_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 2620.047 ; gain = 0.000
+run 5 ms
+run: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2620.047 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 22:58:19 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 23:05:08 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_cpu_behav -key {Behavioral:sim_1:Functional:test_cpu} -tclbatch {test_cpu.tcl} -view {E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg
+source test_cpu.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_cpu_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 2620.047 ; gain = 0.000
+run 5 ms
+run: Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 2620.047 ; gain = 0.000
+set_property top top [current_fileset]
+update_compile_order -fileset sources_1
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 2620.047 ; gain = 0.000
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1
+
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_cpu_behav -key {Behavioral:sim_1:Functional:test_cpu} -tclbatch {test_cpu.tcl} -view {E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg
+source test_cpu.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_cpu_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 2620.047 ; gain = 0.000
+run 5 ms
+run: Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 2620.047 ; gain = 0.000
+set_property top SSD [current_fileset]
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 23:36:39 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 23:40:16 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_cpu_behav -key {Behavioral:sim_1:Functional:test_cpu} -tclbatch {test_cpu.tcl} -view {E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg
+source test_cpu.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_cpu_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 2620.047 ; gain = 0.000
+run 5 ms
+run: Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 2620.047 ; gain = 0.000
+add_bp {E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v} 13
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_cpu_behav -key {Behavioral:sim_1:Functional:test_cpu} -tclbatch {test_cpu.tcl} -view {E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg
+source test_cpu.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Stopped at time : 0 fs : File "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 13
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_cpu_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:10 . Memory (MB): peak = 2620.047 ; gain = 0.000
+run 5 ms
+Stopped at time : 0 fs : File "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 13
+remove_bps -file {E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v} -line 13
+run 5 ms
+run: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2620.047 ; gain = 0.000
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 2620.047 ; gain = 0.000
+relaunch_sim
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 2620.047 ; gain = 0.000
+add_wave {{/test_cpu/cpu_0/reg_file/rf_data[22]}} 
+add_wave {{/test_cpu/cpu_0/program_counter/pc}} 
+add_wave {{/test_cpu/cpu_0/bus/address}} 
+run 5 ms
+run: Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 2620.047 ; gain = 0.000
+save_wave_config {E:/Courses/CPU/Pipeline/test_cpu_behav.wcfg}
+add_files -fileset sim_1 -norecurse E:/Courses/CPU/Pipeline/test_cpu_behav.wcfg
+set_property xsim.view {E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg E:/Courses/CPU/Pipeline/test_cpu_behav.wcfg} [get_filesets sim_1]
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 23:54:00 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 23:56:20 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 30 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sysclk'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports sysclk]'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+set_property top top [current_fileset]
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Thu Jul 27 23:57:35 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 534 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+launch_runs impl_1 -jobs 4
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.065 . Memory (MB): peak = 2620.047 ; gain = 0.000
+[Thu Jul 27 23:59:57 2023] Launched impl_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/impl_1/runme.log
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Fri Jul 28 00:01:32 2023] Launched impl_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 526 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/.Xil/Vivado-8076-LAPTOP-IPU5LKLQ/dcp18/top.xdc]
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/.Xil/Vivado-8076-LAPTOP-IPU5LKLQ/dcp18/top.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.426 . Memory (MB): peak = 2749.297 ; gain = 4.219
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.426 . Memory (MB): peak = 2749.297 ; gain = 4.219
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/Courses/CPU/Pipeline/Pipeline.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Fri Jul 28 00:05:50 2023] Launched synth_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Fri Jul 28 00:07:02 2023] Launched impl_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Fri Jul 28 00:08:50 2023] Launched impl_1...
+Run output will be captured here: E:/Courses/CPU/Pipeline/Pipeline.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {E:/Courses/CPU/Pipeline/Pipeline.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+close_design
+close_design
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Jul 28 00:18:15 2023...

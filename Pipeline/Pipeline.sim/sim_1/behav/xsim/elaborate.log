@@ -1,0 +1,63 @@
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav

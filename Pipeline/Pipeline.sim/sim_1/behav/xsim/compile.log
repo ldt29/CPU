@@ -1,0 +1,52 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
