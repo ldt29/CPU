@@ -1,0 +1,574 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Jul 28 00:22:18 2023
+# Process ID: 21184
+# Current directory: E:/Courses/CPU/Pipeline
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1588 E:\Courses\CPU\Pipeline\Pipeline.xpr
+# Log file: E:/Courses/CPU/Pipeline/vivado.log
+# Journal file: E:/Courses/CPU/Pipeline\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/Courses/CPU/Pipeline/Pipeline.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Vivado/Vivado/2017.4/data/ip'.
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 764.258 ; gain = 43.215
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a35tfgg484-1
+Top: top
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Rx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v:23]
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Rx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v:24]
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Rx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v:25]
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Rx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v:26]
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Rx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v:27]
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Tx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v:25]
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Tx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v:26]
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Tx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v:27]
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Tx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v:28]
+WARNING: [Synth 8-2507] parameter declaration becomes local in UART_Tx with formal parameter declaration list [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v:29]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 858.891 ; gain = 87.484
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'top' [E:/Courses/CPU/Pipeline/src/designs/top.v:1]
+INFO: [Synth 8-638] synthesizing module 'CPU' [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:1]
+INFO: [Synth 8-638] synthesizing module 'ProgramCounter' [E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v:1]
+INFO: [Synth 8-256] done synthesizing module 'ProgramCounter' (1#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v:1]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:39]
+INFO: [Synth 8-638] synthesizing module 'IF_ID_Reg' [E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v:3]
+INFO: [Synth 8-256] done synthesizing module 'IF_ID_Reg' (2#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v:3]
+INFO: [Synth 8-638] synthesizing module 'Control' [E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v:1]
+INFO: [Synth 8-256] done synthesizing module 'Control' (3#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v:1]
+INFO: [Synth 8-638] synthesizing module 'PCOnBreak' [E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v:3]
+INFO: [Synth 8-256] done synthesizing module 'PCOnBreak' (4#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v:3]
+INFO: [Synth 8-638] synthesizing module 'RegisterFile' [E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v:1]
+INFO: [Synth 8-256] done synthesizing module 'RegisterFile' (5#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v:1]
+INFO: [Synth 8-638] synthesizing module 'ForwardControl' [E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v:1]
+INFO: [Synth 8-256] done synthesizing module 'ForwardControl' (6#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v:1]
+INFO: [Synth 8-638] synthesizing module 'HazardUnit' [E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v:1]
+INFO: [Synth 8-256] done synthesizing module 'HazardUnit' (7#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v:1]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:147]
+INFO: [Synth 8-638] synthesizing module 'ID_EX_Reg' [E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v:3]
+INFO: [Synth 8-256] done synthesizing module 'ID_EX_Reg' (8#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v:3]
+INFO: [Synth 8-638] synthesizing module 'ALUControl' [E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v:1]
+	Parameter ALU_AND bound to: 5'b00000 
+	Parameter ALU_OR bound to: 5'b00001 
+	Parameter ALU_ADD bound to: 5'b00010 
+	Parameter ALU_SUB bound to: 5'b00110 
+	Parameter ALU_SLT bound to: 5'b00111 
+	Parameter ALU_NOR bound to: 5'b01100 
+	Parameter ALU_XOR bound to: 5'b01101 
+	Parameter ALU_SLL bound to: 5'b10000 
+	Parameter ALU_SRL bound to: 5'b11000 
+	Parameter ALU_SRA bound to: 5'b11001 
+INFO: [Synth 8-256] done synthesizing module 'ALUControl' (9#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v:1]
+INFO: [Synth 8-638] synthesizing module 'ALU' [E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v:3]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (10#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v:3]
+INFO: [Synth 8-638] synthesizing module 'BranchTest' [E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v:1]
+INFO: [Synth 8-256] done synthesizing module 'BranchTest' (11#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v:1]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:183]
+INFO: [Synth 8-638] synthesizing module 'EX_MEM_Reg' [E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v:3]
+INFO: [Synth 8-256] done synthesizing module 'EX_MEM_Reg' (12#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v:3]
+INFO: [Synth 8-638] synthesizing module 'Bus' [E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v:1]
+	Parameter IM_SIZE_BIT bound to: 10 - type: integer 
+	Parameter DM_SIZE_BIT bound to: 10 - type: integer 
+	Parameter MAX_SIZE_BIT bound to: 10 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'InstructionMemory' [E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v:1]
+	Parameter RAM_SIZE_BIT bound to: 10 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'InstructionMemory' (13#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v:1]
+INFO: [Synth 8-638] synthesizing module 'DataMemory' [E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v:1]
+	Parameter RAM_SIZE_BIT bound to: 10 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'DataMemory' (14#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v:1]
+INFO: [Synth 8-638] synthesizing module 'UART' [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v:1]
+	Parameter CLKS_PER_BIT bound to: 16'b0010100010110001 
+	Parameter IM_SIZE_BIT bound to: 10 - type: integer 
+	Parameter DM_SIZE_BIT bound to: 10 - type: integer 
+	Parameter MAX_SIZE_BIT bound to: 10 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'UART_Rx' [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v:14]
+	Parameter CLKS_PER_BIT bound to: 16'b0010100010110001 
+	Parameter s_IDLE bound to: 3'b000 
+	Parameter s_RX_START_BIT bound to: 3'b001 
+	Parameter s_RX_DATA_BITS bound to: 3'b010 
+	Parameter s_RX_STOP_BIT bound to: 3'b011 
+	Parameter s_CLEANUP bound to: 3'b100 
+INFO: [Synth 8-256] done synthesizing module 'UART_Rx' (15#1) [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v:14]
+INFO: [Synth 8-638] synthesizing module 'UART_Tx' [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v:14]
+	Parameter CLKS_PER_BIT bound to: 16'b0010100010110001 
+	Parameter s_IDLE bound to: 3'b000 
+	Parameter s_TX_START_BIT bound to: 3'b001 
+	Parameter s_TX_DATA_BITS bound to: 3'b010 
+	Parameter s_TX_STOP_BIT bound to: 3'b011 
+	Parameter s_CLEANUP bound to: 3'b100 
+INFO: [Synth 8-256] done synthesizing module 'UART_Tx' (16#1) [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v:14]
+INFO: [Synth 8-256] done synthesizing module 'UART' (17#1) [E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v:1]
+INFO: [Synth 8-638] synthesizing module 'Timer' [E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v:1]
+INFO: [Synth 8-256] done synthesizing module 'Timer' (18#1) [E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v:1]
+INFO: [Synth 8-638] synthesizing module 'LED' [E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v:1]
+INFO: [Synth 8-256] done synthesizing module 'LED' (19#1) [E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v:1]
+INFO: [Synth 8-638] synthesizing module 'SSD' [E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v:1]
+INFO: [Synth 8-638] synthesizing module 'clk_gen' [E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v:1]
+	Parameter CNT bound to: 16'b1100001101010000 
+INFO: [Synth 8-256] done synthesizing module 'clk_gen' (20#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v:1]
+WARNING: [Synth 8-5788] Register mark_reg in module SSD is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v:39]
+WARNING: [Synth 8-5788] Register dp_reg in module SSD is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v:13]
+WARNING: [Synth 8-5788] Register read_ssd_reg in module SSD is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v:13]
+INFO: [Synth 8-256] done synthesizing module 'SSD' (21#1) [E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v:1]
+INFO: [Synth 8-638] synthesizing module 'SysTick' [E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v:1]
+INFO: [Synth 8-256] done synthesizing module 'SysTick' (22#1) [E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v:1]
+WARNING: [Synth 8-3848] Net read_data_SSD in module/entity Bus does not have driver. [E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v:44]
+INFO: [Synth 8-256] done synthesizing module 'Bus' (23#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v:1]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:206]
+INFO: [Synth 8-638] synthesizing module 'MEM_WB_Reg' [E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v:3]
+WARNING: [Synth 8-6014] Unused sequential element MemToReg_reg was removed.  [E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v:31]
+INFO: [Synth 8-256] done synthesizing module 'MEM_WB_Reg' (24#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v:3]
+INFO: [Synth 8-256] done synthesizing module 'CPU' (25#1) [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:1]
+WARNING: [Synth 8-350] instance 'cpu_0' of module 'CPU' requires 9 connections, but only 4 given [E:/Courses/CPU/Pipeline/src/designs/top.v:13]
+INFO: [Synth 8-256] done synthesizing module 'top' (26#1) [E:/Courses/CPU/Pipeline/src/designs/top.v:1]
+WARNING: [Synth 8-3331] design MEM_WB_Reg has unconnected port MemToReg_in[1]
+WARNING: [Synth 8-3331] design MEM_WB_Reg has unconnected port MemToReg_in[0]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[31]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[30]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[29]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[28]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[27]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[26]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[25]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[24]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[23]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[22]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[21]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[20]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[19]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[18]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[17]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[16]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[15]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[14]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[13]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[12]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[1]
+WARNING: [Synth 8-3331] design Bus has unconnected port pc[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 915.172 ; gain = 143.766
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin control:opcode[5] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:opcode[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:opcode[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:opcode[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:opcode[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:opcode[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:funct[5] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:funct[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:funct[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:funct[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:funct[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin control:funct[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:62]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:RegWrite to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_addr[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_addr[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_addr[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_addr[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_addr[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[31] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[30] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[29] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[28] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[27] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[26] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[25] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[24] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[23] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[22] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[21] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[20] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[19] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[18] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[17] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[16] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[15] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[14] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[13] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[12] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[11] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[10] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[9] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[8] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[7] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[6] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[5] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:write_data[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_1[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_1[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_1[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_1[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_1[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_2[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_2[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_2[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_2[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin reg_file:read_addr_2[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:92]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rs_addr[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rs_addr[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rs_addr[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rs_addr[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rs_addr[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rt_addr[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rt_addr[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rt_addr[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rt_addr[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:rt_addr[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:id_ex_RegWrite to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:id_ex_write_addr[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:id_ex_write_addr[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:id_ex_write_addr[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:id_ex_write_addr[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:id_ex_write_addr[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:ex_mem_RegWrite to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:ex_mem_write_addr[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:ex_mem_write_addr[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:ex_mem_write_addr[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:ex_mem_write_addr[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:ex_mem_write_addr[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:mem_wb_RegWrite to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:mem_wb_write_addr[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:mem_wb_write_addr[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:mem_wb_write_addr[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:mem_wb_write_addr[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin forward_ctr:mem_wb_write_addr[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:104]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rs_addr[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rs_addr[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rs_addr[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rs_addr[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rs_addr[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rt_addr[4] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rt_addr[3] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rt_addr[2] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rt_addr[1] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:if_id_rt_addr[0] to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:id_ex_RegWrite to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+WARNING: [Synth 8-3295] tying undriven pin hazard_unit:id_ex_MemRead to constant 0 [E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v:121]
+INFO: [Common 17-14] Message 'Synth 8-3295' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 915.172 ; gain = 143.766
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tfgg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+WARNING: [Vivado 12-507] No nets matched 'sysclk_IBUF'. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:27 ; elapsed = 00:00:21 . Memory (MB): peak = 1276.309 ; gain = 504.902
+57 Infos, 145 Warnings, 1 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:27 ; elapsed = 00:00:21 . Memory (MB): peak = 1276.309 ; gain = 504.902
+launch_simulation -mode post-synthesis -type functional
+INFO: [Vivado 12-5682] Launching post-synthesis functional simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/synth/func/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Netlist 29-17] Analyzing 534 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+INFO: [SIM-utils-24] Writing simulation netlist file for design 'synth_1'...
+INFO: [SIM-utils-25] write_verilog -mode funcsim -nolib -force -file "E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/synth/func/xsim/test_cpu_func_synth.v"
+INFO: [SIM-utils-36] Netlist generated:E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/synth/func/xsim/test_cpu_func_synth.v
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/synth/func/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/synth/func/xsim/test_cpu_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+WARNING: [VRFC 10-1195] overwriting previous definition of module Bus [E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v:1]
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:15 ; elapsed = 00:02:18 . Memory (MB): peak = 1856.664 ; gain = 427.574
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:25 ; elapsed = 00:02:23 . Memory (MB): peak = 1856.664 ; gain = 572.344
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+launch_simulation -mode post-implementation -type functional
+INFO: [Vivado 12-5682] Launching post-implementation functional simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/impl/func/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [Netlist 29-17] Analyzing 526 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [E:/Courses/CPU/Pipeline/.Xil/Vivado-21184-LAPTOP-IPU5LKLQ/dcp1/top.xdc]
+Finished Parsing XDC File [E:/Courses/CPU/Pipeline/.Xil/Vivado-21184-LAPTOP-IPU5LKLQ/dcp1/top.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.432 . Memory (MB): peak = 1993.355 ; gain = 4.082
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.433 . Memory (MB): peak = 1993.355 ; gain = 4.082
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 128 instances were transformed.
+  RAM256X1S => RAM256X1S (MUXF7, MUXF7, MUXF8, RAMS64E, RAMS64E, RAMS64E, RAMS64E): 128 instances
+
+INFO: [SIM-utils-31] Writing simulation netlist file for design 'impl_1'...
+INFO: [SIM-utils-32] write_verilog -mode funcsim -nolib -force -file "E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/impl/func/xsim/test_cpu_func_impl.v"
+INFO: [SIM-utils-36] Netlist generated:E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/impl/func/xsim/test_cpu_func_impl.v
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/impl/func/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/impl/func/xsim/test_cpu_func_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+WARNING: [VRFC 10-1195] overwriting previous definition of module Bus [E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v:1]
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+run_program: Time (s): cpu = 00:00:04 ; elapsed = 00:13:04 . Memory (MB): peak = 2063.180 ; gain = 2.297
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'compile' step aborted
+launch_simulation: Time (s): cpu = 00:00:11 ; elapsed = 00:13:08 . Memory (MB): peak = 2063.180 ; gain = 199.809
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'test_cpu' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj test_cpu_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Control
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ForwardControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HazardUnit
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module InstructionMemory
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module UART_Tx
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module test_cpu
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 0149f46f534f4b1984c6ac92ad8138ee --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_cpu_behav xil_defaultlib.test_cpu xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port uart_on [E:/Courses/CPU/Pipeline/src/testbenches/test_cpu.v:30]
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" Line 1. Module CPU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ProgramCounter.v" Line 1. Module ProgramCounter doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/IF_ID_Reg.v" Line 3. Module IF_ID_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Control.v" Line 1. Module Control doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/PCOnBreak.v" Line 3. Module PCOnBreak doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/RegisterFile.v" Line 1. Module RegisterFile doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ForwardControl.v" Line 1. Module ForwardControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/HazardUnit.v" Line 1. Module HazardUnit doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/ID_EX_Reg.v" Line 3. Module ID_EX_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" Line 1. Module ALUControl doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" Line 3. Module ALU doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" Line 1. Module BranchTest doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/EX_MEM_Reg.v" Line 3. Module EX_MEM_Reg doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" Line 1. Module Bus doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/InstructionMemory.v" Line 1. Module InstructionMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/DataMemory.v" Line 1. Module DataMemory doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART.v" Line 1. Module UART(IM_SIZE_BIT=10,DM_SIZE_BIT=10,MAX_SIZE_BIT=10) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Rx.v" Line 14. Module UART_Rx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/UART_Tx.v" Line 14. Module UART_Tx(CLKS_PER_BIT=16'b010100010110001) doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/Timer.v" Line 1. Module Timer doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/LED.v" Line 1. Module LED doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SSD.v" Line 1. Module SSD doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/clk_gen.v" Line 1. Module clk_gen doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/external_devices/SysTick.v" Line 1. Module SysTick doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "E:/Courses/CPU/Pipeline/src/designs/cpu/pipeline_registers/MEM_WB_Reg.v" Line 3. Module MEM_WB_Reg doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module xil_defaultlib.IF_ID_Reg
+Compiling module xil_defaultlib.Control
+Compiling module xil_defaultlib.PCOnBreak
+Compiling module xil_defaultlib.RegisterFile
+Compiling module xil_defaultlib.ForwardControl
+Compiling module xil_defaultlib.HazardUnit
+Compiling module xil_defaultlib.ID_EX_Reg
+Compiling module xil_defaultlib.ALUControl
+Compiling module xil_defaultlib.ALU
+Compiling module xil_defaultlib.BranchTest
+Compiling module xil_defaultlib.EX_MEM_Reg
+Compiling module xil_defaultlib.InstructionMemory
+Compiling module xil_defaultlib.DataMemory
+Compiling module xil_defaultlib.UART_Rx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART_Tx(CLKS_PER_BIT=16'b0101000...
+Compiling module xil_defaultlib.UART(IM_SIZE_BIT=10,DM_SIZE_BIT=...
+Compiling module xil_defaultlib.Timer
+Compiling module xil_defaultlib.LED
+Compiling module xil_defaultlib.clk_gen
+Compiling module xil_defaultlib.SSD
+Compiling module xil_defaultlib.SysTick
+Compiling module xil_defaultlib.Bus
+Compiling module xil_defaultlib.MEM_WB_Reg
+Compiling module xil_defaultlib.CPU
+Compiling module xil_defaultlib.test_cpu
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_cpu_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2065.719 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "test_cpu_behav -key {Behavioral:sim_1:Functional:test_cpu} -tclbatch {test_cpu.tcl} -view {E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg} -view {E:/Courses/CPU/Pipeline/test_cpu_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config E:/Courses/CPU/Pipeline/src/testbenches/test_cpu_behav.wcfg
+open_wave_config E:/Courses/CPU/Pipeline/test_cpu_behav.wcfg
+source test_cpu.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'test_cpu_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:13 . Memory (MB): peak = 2087.465 ; gain = 21.746
+run 5 ms
+run: Time (s): cpu = 00:00:10 ; elapsed = 00:00:14 . Memory (MB): peak = 2089.355 ; gain = 0.629
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Jul 28 00:41:47 2023...

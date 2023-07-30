@@ -1,0 +1,29 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/Pipeline.sim/sim_1/impl/func/xsim/test_cpu_func_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+INFO: [VRFC 10-311] analyzing module CPU
+INFO: [VRFC 10-311] analyzing module DataMemory
+INFO: [VRFC 10-311] analyzing module EX_MEM_Reg
+INFO: [VRFC 10-311] analyzing module ID_EX_Reg
+INFO: [VRFC 10-311] analyzing module IF_ID_Reg
+INFO: [VRFC 10-311] analyzing module LED
+INFO: [VRFC 10-311] analyzing module MEM_WB_Reg
+INFO: [VRFC 10-311] analyzing module PCOnBreak
+INFO: [VRFC 10-311] analyzing module ProgramCounter
+INFO: [VRFC 10-311] analyzing module RegisterFile
+INFO: [VRFC 10-311] analyzing module SSD
+INFO: [VRFC 10-311] analyzing module SysTick
+INFO: [VRFC 10-311] analyzing module Timer
+INFO: [VRFC 10-311] analyzing module clk_gen
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/ALUControl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALUControl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/BranchTest.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module BranchTest
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Bus
+WARNING: [VRFC 10-1195] overwriting previous definition of module Bus [E:/Courses/CPU/Pipeline/src/designs/cpu/Bus.v:1]
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Courses/CPU/Pipeline/src/designs/cpu/CPU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module CPU
