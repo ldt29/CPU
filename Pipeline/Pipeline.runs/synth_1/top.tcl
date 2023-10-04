@@ -16,7 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a35tfgg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -66,6 +65,9 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 read_xdc E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc
 set_property used_in_implementation false [get_files E:/Courses/CPU/Pipeline/src/constraints/ego1.xdc]
+
+read_xdc E:/Courses/CPU/Pipeline/src/constraints/top.xdc
+set_property used_in_implementation false [get_files E:/Courses/CPU/Pipeline/src/constraints/top.xdc]
 
 
 synth_design -top top -part xc7a35tfgg484-1

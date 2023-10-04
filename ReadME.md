@@ -23,7 +23,7 @@
 
 2. 总线和外部设备
 
-   该部分包含总线和一系列外设（中断定时器、七段数码管、系统时钟计数器、LED 和串口）。
+   该部分包含总线和一系列外设（七段数码管、LED 和串口）。
 
 
 
@@ -31,7 +31,7 @@
 
 **本项目的流水线 MIPS CPU 具有如下功能与特性：**
 
-1. 125+ MHz 主频
+1. 120+ MHz 主频
 2. 5 级流水线 (IF, ID, EX, MEM, WB)
 3. Forwarding 支持
    - 采用完全的 forwarding 电路解决数据关联问题
@@ -49,17 +49,15 @@
 8. 支持通过伪总线与外设交互（之所以叫伪总线，是因为只是借鉴总线思想，实际实现并不符合总线规范）
    - 控制七段数码管
    - 控制 LED 灯
-   - 配置中断定时器、响应其中断
-   - 获取系统时刻
    - 使用串口导入指令与数据，导出数据
 
 
 
 ### 数据通路图
 
-下图为本项目的数据通路图。由于版面限制，部分控制信号与细节未绘出。
+下图为本项目的数据通路图。由于版面限制，部分控制信号与细节未标出。
 
-![datapath](report.assets/datapath.png)
+![datapath](report.assets/datapath.jpg)
 
 
 
@@ -87,9 +85,6 @@
 
 ![forwarding](report.assets/forwarding.png)
 
-
-
-这里有一个可以优化时序性能的地方：EX 阶段的转发信号可以在 ID 阶段提前生成。因为 ID 阶段的时间相对宽裕，把这部分逻辑提前就能起到缩短 EX 阶段路径长度的作用。
 
 
 
@@ -352,18 +347,6 @@ MIPS 的五级流水线使用四个流水线寄存器来存放数据和控制信
 
 ### 外设
 
-#### 中断定时器
-
-> src/designs/external_devices/Timer.v
-
-| 地址范围   | 功能               | 备注                                                         |
-| ---------- | ------------------ | ------------------------------------------------------------ |
-| 0x40000000 | 定时器 `TH`        | 每当 `TL` 计数到全 `1` 时，自动加载 `TH` 值到 `TL`           |
-| 0x40000004 | 定时器 `TL`        | 定时器计数器， `TL` 值随时钟递增                             |
-| 0x40000008 | 定时器控制 `TCON ` | 0bit：定时器使能控制， 1-enable， 0-disable<br />1bit：定时器中断控制， 1-enable， 0-disable<br />2bit：定时器中断状态，中断控制启用时，计数到全 `1` 会将本位置 `1` |
-
-
-
 #### LED
 
 > src/designs/external_devices/LED.v
@@ -382,15 +365,6 @@ MIPS 的五级流水线使用四个流水线寄存器来存放数据和控制信
 | -------------------- | ---------- | ---------------------------------------------- |
 | 0x40000010           | 七段数码管 | 0-7 bit 是数码管控制，8-11 bit 是 4 个阳极控制 |
 
-
-
-#### 系统时钟计数器 
-
-> src/designs/external_devices/SysTick.v
-
-| 地址范围（字节地址） | 功能           | 备注                                                         |
-| -------------------- | -------------- | ------------------------------------------------------------ |
-| 0x40000014           | 系统时钟计数器 | 系统复位时， `systick` 复位为零，之后每系统时钟周期，计数值加`1`。忽略溢出 |
 
 
 
@@ -446,333 +420,317 @@ module UART(
 
 ## 仿真测试
 
-本工程下共有 5 个 simulation set, 分别是
 
-| 名称                  | 备注                                                         |
-| --------------------- | ------------------------------------------------------------ |
-| cpu_tb                | 测试 CPU 的基本功能和定时器中断。汇编指令由上学期实验四修改得来。<br />代码文件：`timer.s`（汇编指令）, `timer.hex`（十六进制机器码文本） |
-| cpu_with_uart_tb      | 主要用于测试串口的收发功能。<br />代码文件：`uart.s`, `uart.hex`, `uart_data.hex`（十六进制数据文件） |
-| cpu_tb_insertion_sort | 测试本次实验要求的排序代码。<br />代码文件：`insertion_sort.s`, `insertion_sort.hex`, `insertion_sort_data.hex` |
-| data_memory_tb        | 测试数据存储器                                               |
-| register_file_tb      | 测试寄存器堆                                                 |
+### 本实验最短路径算法代码测试
 
-下面展示第一项和第三项测试。
-
-
-
-### CPU 基本功能及定时器中断测试
-
-测试的汇编指令如下：
-
-> src/testbenches/assembly/timer.s
-
-```assembly
-        j       to_kuseg
-        j       interrupt
-        j       exception
-
-to_kuseg:
-        la      $ra,    main
-        jr      $ra
-
-main:
-        # enable timer
-        lui     $t1,    0x4000
-        lui     $t2,    0xffff
-        ori     $t2,    $t2,    0xffcf
-        sw      $t2,    0($t1)
-        sw      $t2,    4($t1)
-        ori     $t3,    $zero,  3
-        sw      $t3,    8($t1)
-
-        addi    $a0,    $zero,  3
-        jal     sum
-
-loop:
-        beq     $zero,  $zero,  loop
-
-sum:
-        addi    $sp,    $sp,    -8
-        sw      $ra,    4($sp)
-        sw      $a0,    0($sp)
-        slti    $t0,    $a0,    1
-        beq     $t0,    $zero,  L1
-        xor     $v0,    $zero,  $zero
-        addi    $sp,    $sp,    8
-        jr      $ra
-
-L1:
-        addi    $a0,    $a0,    -1
-        jal     sum
-        lw      $a0,    0($sp)
-        lw      $ra,    4($sp)
-        addi    $sp,    $sp,    8
-        add     $v0,    $a0,    $v0
-        jr      $ra
-
-interrupt:
-        sw      $t1,    -4($sp)
-        sw      $t2,    -8($sp)
-        lui     $t1,    0x4000
-        ori     $t2,    $zero, 3
-        sw      $t2,    8($t1)
-        lw      $t1,    -4($sp)
-        lw      $t2,    -8($sp)
-        jr      $k0
-
-exception:
-        beq     $zero,  $zero,  exception
-
-```
-
-
-
-仿真结果如图：
-
-![cpu_tb](report.assets/cpu_tb.png)
-
-对照上学期的实验四，发现程序正常运行，得到了正确的结果。
-
-同时，CPU 也正确地处理了两次定时器中断。
-
-
-
-### 本实验排序代码测试
-
-我选择了插入排序作为本次实验的排序方法。
+我选择了 bellman 算法作为本次实验的最短路径算法。
 
 测试的代码如下：
 
-> src/testbenches/assembly/insertion_sort.s
+> src/testbenches/assembly/sssp_bellman.asm
 
 ```assembly
 .text
-        j       to_kuseg
-        j       interrupt
-        j       exception
-
-to_kuseg:
-        la      $ra,    main
-        jr      $ra
-
 main:
-        li      $s5,    0x40000014
-        lw      $s6,    0($s5)          # load `systick`
-        # use insertion sort on array `v` with `n` numbers
-        # $s0: i, $s1: j,  $s2: v, $s3: n
-        li      $s2,    0               # v = 0x00000000        
-        li      $s3,    100             # n = 100
-        
-        # for_outer (i = 0; i < n; ++i)
-        li      $s0,    0               # i = 0
-for_outer:
-        # if (!(i < n)) end for
-        slt     $t0,    $s0,    $s3
-        beq     $t0,    $zero,  endf_outer
-        
-        # for_inner (j = i - 1; j >= 0 && v[j] > v[j + 1]; --j)
-        addi    $s1,    $s0,    -1      # j = i - 1
-for_inner:
-        # if (j < 0) end for
-        slti    $t0,    $s1,    0
-        bne     $t0,    $zero,  endf_inner
-        # if (!(v[j] > v[j + 1])) end for
-        sll     $t0,    $s1,    2
-        add     $t1,    $s2,    $t0
-        lw      $t2,    0($t1)          # $t2 = v[j]
-        lw      $t3,    4($t1)          # $t3 = v[j + 1]
-        sltu    $t0,    $t3,    $t2
-        beq     $t0,    $zero,  endf_inner      
-        
-        # swap v[j] and v[j + 1]
-        sw      $t2,    4($t1)
-        sw      $t3,    0($t1)
-        
-        # loop back for_inner
-        addi    $s1,    $s1,    -1      # --j
-        j       for_inner       
 
-endf_inner:
-        # loop back for_outer
-        addi    $s0,    $s0,    1       # ++i
-        j       for_outer
+# Parameters
+li $s7, 1024
+li $t0, 0
+li $a0,6
+li $s0,6
+addi $a1, $t0, 4    # set $a1 to &graph
 
-endf_outer:
-        lw      $s7,    0($s5)          # load `systick`
-        sub     $v0,    $s7,    $s6     # $v0 = execution cycles
-        
-        # enable timer
-        lui     $t0,    0x4000
-        li      $t1,    0xffffffff
-        sw      $t1,    4($t0)
-        lui     $t1,    0xfff0
-        sw      $t1,    0($t0)
-        li      $t1,    3
-        sw      $t1,    8($t0)
+data_in: 
+li $t8,0
+sw $t8,0($a1)
+li $t8,9
+sw $t8,4($a1)
+li $t8,3
+sw $t8,8($a1)
+li $t8,6
+sw $t8,12($a1)
+li $t8,-1
+sw $t8,16($a1)
+li $t8,-1
+sw $t8,20($a1)
+addi $a1,$a1,128
+li $t8,9
+sw $t8,0($a1)
+li $t8,0
+sw $t8,4($a1)
+li $t8,-1
+sw $t8,8($a1)
+li $t8,3
+sw $t8,12($a1)
+li $t8,4
+sw $t8,16($a1)
+li $t8,1
+sw $t8,20($a1)
+addi $a1,$a1,128
+li $t8,3
+sw $t8,0($a1)
+li $t8,-1
+sw $t8,4($a1)
+li $t8,0
+sw $t8,8($a1)
+li $t8,2
+sw $t8,12($a1)
+li $t8,-1
+sw $t8,16($a1)
+li $t8,5
+sw $t8,20($a1)
+addi $a1,$a1,128
+li $t8,6
+sw $t8,0($a1)
+li $t8,3
+sw $t8,4($a1)
+li $t8,2
+sw $t8,8($a1)
+li $t8,0
+sw $t8,12($a1)
+li $t8,6
+sw $t8,16($a1)
+li $t8,-1
+sw $t8,20($a1)
+addi $a1,$a1,128
+li $t8,-1
+sw $t8,0($a1)
+li $t8,4
+sw $t8,4($a1)
+li $t8,-1
+sw $t8,8($a1)
+li $t8,6
+sw $t8,12($a1)
+li $t8,0
+sw $t8,16($a1)
+li $t8,2
+sw $t8,20($a1)
+addi $a1,$a1,128
+li $t8,-1
+sw $t8,0($a1)
+li $t8,1
+sw $t8,4($a1)
+li $t8,5
+sw $t8,8($a1)
+li $t8,-1
+sw $t8,12($a1)
+li $t8,2
+sw $t8,16($a1)
+li $t8,0
+sw $t8,20($a1)
 
-exit:
-        j       exit
+addi $a1,$t0,4
 
 
-interrupt:
-        # no need to save registers as we do not return
-        # disable timer
-        lui     $s0,    0x4000
-        sw      $zero,  8($s0)
-        
-        # display execution cycles
-        li      $s0,    0x190           # the base addr of SSD table
-        
-        # extract lower 16 bits of `systick`
-        li      $t4,    0x000f
-        and     $t0,    $v0,    $t4
-        srl     $v0,    $v0,    4
-        and     $t1,    $v0,    $t4
-        srl     $v0,    $v0,    4
-        and     $t2,    $v0,    $t4
-        srl     $v0,    $v0,    4
-        and     $t3,    $v0,    $t4
-        
-        # get SSD representation of `systick`
-        sll     $t4,    $t0,    2
-        add     $t4,    $t4,    $s0
-        lw      $t0,    0($t4)
-        addi    $t0,    $t0,    0x800   # 0b1000_0000_0000
-        sll     $t4,    $t1,    2
-        add     $t4,    $t4,    $s0
-        lw      $t1,    0($t4)
-        addi    $t1,    $t1,    0x400
-        sll     $t4,    $t2,    2
-        add     $t4,    $t4,    $s0
-        lw      $t2,    0($t4)
-        addi    $t2,    $t2,    0x200
-        sll     $t4,    $t3,    2
-        add     $t4,    $t4,    $s0
-        lw      $t3,    0($t4)
-        addi    $t3,    $t3,    0x100
-        
-        li      $s0,    0x40000010      # addr of SSD
-scan:
-        sw      $t0,    0($s0)
-        li      $a0,    10000
-        jal     wait
-        sw      $t1,    0($s0)
-        li      $a0,    10000
-        jal     wait
-        sw      $t2,    0($s0)
-        li      $a0,    10000
-        jal     wait
-        sw      $t3,    0($s0)
-        li      $a0,    10000
-        jal     wait
-        j       scan
+# Call Bellman-Ford
+jal  bellman_ford
 
-wait:
-        addi    $a0,    $a0,    -1
-        bne     $a0,    $zero,  wait    
-        jr      $ra
+li $s6,0
+addi $t8,$t0,0
 
-exception:
-        j       exception
+# Print results
+li   $t0, 1
+add $t1,$s7,$zero
+
+li   $s6, 0
+
+print_entry:
+addi $t1, $t1, 4
+lw   $a0, 0($t1)
+add  $s6,$s6,$a0
+addi $t0, $t0, 1
+sub  $s5, $t0, $s0
+bltz  $s5, print_entry
+
+lui $t8, 0x4000
+addi $a0,$t8,0x10
+sw $s6, 0($a0)
+
+
+loop:
+j loop
+
+#li $v0,17
+#syscall
+
+bellman_ford:
+##### YOUR CODE HERE #####
+
+# Initialization
+
+add   $t1, $s7, $zero
+sw   $zero, 0($t1)
+
+li   $t0, 1
+li   $t2, -1
+init:
+addi $t1, $t1, 4
+sw   $t2, 0($t1)
+addi $t0, $t0, 1
+blt  $t0, $a0, init
+
+
+# Relaxation for (n - 1) times
+li   $t0, 1
+RforT:
+
+# Relaxation on every edge each time
+move $t2, $zero 
+RonE1:
+
+li $t3, 0
+RonE2:
+addi $sp, $sp, -12
+sw   $a1, 0($sp)
+sw   $t0, 4($sp)
+sw   $t2, 8($sp)
+
+sll  $t5, $t2, 5
+add  $t4, $t5, $t3
+
+add   $t1, $s7, $zero
+sll  $t2, $t2, 2
+add  $t1, $t1, $t2
+srl  $t2, $t2, 2
+lw   $t5, 0($t1)    # dist[u]  
+
+add   $t1,$s7,$zero
+sll  $t3, $t3, 2
+add  $t1, $t1, $t3
+srl  $t3, $t3, 2
+lw   $t6, 0($t1)    # dist[v]
+
+sll  $t4, $t4, 2
+add  $a1, $a1, $t4
+srl  $t4, $t4, 2
+lw   $t7, 0($a1)    # graph[addr]
+
+seq  $t0, $t5, -1
+seq  $t2, $t7, -1
+or   $t0, $t0, $t2
+bne  $t0, $zero, continue
+
+seq  $t0, $t6, -1
+add  $t5, $t5, $t7  # dist[u] + graph[addr]
+sgt  $t2, $t6, $t5 
+or   $t0, $t0, $t2
+beq  $t0, $zero, continue
+
+add   $t1, $s7,$zero
+sll  $t3, $t3, 2
+add  $t1, $t1, $t3
+srl  $t3, $t3, 2
+sw   $t5, 0($t1) 
+
+
+continue:
+lw   $a1, 0($sp)
+lw   $t0, 4($sp)
+lw   $t2, 8($sp)
+addi $sp, $sp, 12
+
+addi $t3, $t3, 1
+blt  $t3, $a0, RonE2
+
+addi $t2, $t2, 1
+blt  $t2, $a0, RonE1
+
+addi $t0, $t0, 1
+blt  $t0, $a0, RforT
+
+jr   $ra
 ```
 
+启动 MARS 仿真器，使用相同的数据和代码进行测试，结果如下图（注：为了能在模拟器上运行，代码的初始化部分、数据读写并不相同，但计算最短路径的部分完全一致）。
 
+![mars_run](report.assets/mars_run.png)
 
-测试的数据文件包含 100 个 32 位无符号随机整数，以及一个十六进制数到七段数码管表示的映射表。
+8 + 3 + 5 + 10 + 8 = 34(10进制) = 22(16进制)
+
+使用 MARS 中的 Dump machine code or data in an available format 功能将汇编指令转为 168 个 32 位无符号随机整数，存储在 `sssp_bellman.hex` 中，然后使用 `format_insturction.py` 生成对应指令格式的 `sssp_bellman.txt` 文件，并将该文件中的内容复制到 `InstructionMemory.v` 文件中。
 
 仿真结果如下：
 
-![insertion_sort_1](report.assets/insertion_sort_1.png)
+![simulation](report.assets/simulation.png)
 
-可以看待随机数正确地完成了排序。
+可以正确的计算出了最短路径之和 22(16进制) 并存储在 22 号寄存器中，并且 ssd 依次输入对应的数据流。
 
-![insertion_sort_2](report.assets/insertion_sort_2.png)
 
-看一下用来记录指令执行时钟周期数的 `$v0`, 值为 `0x866c`，十进制周期数为 `34412`。
+生成比特流后，烧录进 FPGA。然后 CPU 开始计算最短路径。
 
+计算结束后，输出所有最短路径之和，如下图：
+
+![fpga](report.assets/fpga.jpg)
+
+
+
+发现 mars，CPU，仿真的最短路径之和互相吻合，均为 22（16进制）。
 
 
 ## 综合情况
 
 ### 面积分析
 
-如下图所示，总共使用了 2339 个查找表（其中 2083 个被用于逻辑， 256 个被用于存储），1820 个寄存器。
+如下图所示，总共使用了 2269 个查找表（其中 1757 个被用于逻辑， 512 个被用于存储），1633 个寄存器。
 
-![utilization](report.assets/utilization.png)
+![hierarchy](report.assets/hierarchy.png)
 
-
+![utilization](report.assets/utilization_report.png)
 
 ### 时序性能分析
 
-如下图，WNS 为 2.010 ns。因此得该 CPU 理论工作频率约为 125.16 MHz。 
+如下图，WNS 为 1.679 ns。因此得该 CPU 理论工作频率为 
+$$1 \div (10 ns - 1.679 ns) \approx 120.18 MHz。 $$
 
-![timing_summary](report.assets/timing_summary.png)
+![timing_summary](report.assets/timing_report.png)
 
 
 
 分析关键路径：
 
-![path_prop_1](report.assets/path_prop_1.png)
+![critical](report.assets/critical_path.png)
 
-![path_prop_2](report.assets/path_prop_2.png)
-
-![path_prop_3](report.assets/path_prop_3.png)
+![datapath](report.assets/data_path.png)
 
 
 
-由 Data Path 可以看出，时钟上升沿来临时，先从 IF/ID 流水线寄存器获得了指令，然后从寄存器堆中读取 `rs` 寄存器，再经过转发单元控制，获得最新的 `rs`, 即 `latest_rs_id`, 然后把其值传递给 PC。因此，这应该对应 `jr` 或 `jalr` 指令的 ID 阶段。
+由 Data Path 可以看出，时钟上升沿来临时，先从 MEM/WB 流水线寄存器获得了指令，然后从寄存器堆中读取 `rt` 寄存器，再经过转发单元控制，获得最新的 `rt`, 即 `latest_rt_id`, 然后把其值传递给 EX/MEM, 进行计算，因此，这应该对应 R 型指令的 EX 阶段。
 
 
 
 ## 硬件调试情况
 
-得益于强大的仿真功能，在完成 CPU 逻辑功能的环节，我没有在 FPGA 板上进行过任何调试。因此在这里说一下关于仿真调试的心得。
+在硬件调试的过程中，我遇到了许多问题，在我仿真完成的时候，我以为马上就要完成本次实验了，结果上板子的困难超出我的想象。如上面的显示，我使用 `clk_gen.v` 分频来实现 ssd 数据的轮换，但是我一直行为级仿真正确，在板子上什么也显示不出来。
 
-Vivado 支持一个名为 `$readmemh` 的函数，它可以从文件中读取数据到内存型变量中。因此，只要采用 RAM 来实现 `InstructionMemory` 模块，就可以非常方便地载入不同的汇编代码进行调试。当然，这个函数也能用于向 `DataMemory` 载入数据。这样，使用不同的汇编代码和数据仿真就变得非常方便。
+我一直尝试修改代码，例如只使用 ssd 作为 top 而不用 cpu 进行仿真和上板子，但是板子上仍然什么都显示不出来，这时我查看了电路结构，发现：
 
-采用 RAM 实现 `InstructionMemory` 模块还有一个好处，就是在硬件调试时，可以配合串口，随时载入不同的汇编指令，而无需重新综合、实现、生成比特流，可以省去大量的时间。
+![schematic_ssd](report.assets/schematic_ssd.png)
 
-在验证串口功能时，虽然也可以通过仿真验证，但由于当接收数据较多时需要很多周期，计算资源消耗较大，所以也需要进行必要的硬件调试。为了简化工作流程，我编写了脚本（`hex2serial.py`）实现从 Mars 生成的 16 进制机器码文本到串口序列数据的转换。
+为什么有的线是断的呢，我想这应该就是数码管不亮的原因，然后我查看 `ssd.v` 文件，发现是因为某些变量在多个 `always` 操作里面都改变了值，导致多线程冲突的问题，所以我把那些变量的改变都放在相同的 `always` 中，板子上成功显示出了数字。
 
-最后做排序代码的调试的时候，我也专门编写了生成随机数的脚本（`rnd_num_gen.py`）。由于串口发回的数据可读性不好，我还编写了串口序列转 32 位无符号数的脚本（`hex_num_reader.py`）。
+![fpga_wrong](report.assets/fpga_wrong.jpg)
 
-在实现一定的自动化之后，调试复杂度会减少不少。
+但是还是不对，这个原因就比较简单了，是因为新的板子 0 和 1 表示的亮暗与之前的板子是反的，改完之后，终于显示正确了！！！
 
-此外还有一些在编写代码上的心得。首先是使用 `git` 对项目进行版本控制，这样可以随时对比或回退到之前的代码，有新的实验性想法也可以通过新开分支在其上工作，而不必担心对之前的代码造成损坏。同时，我还使用了 `VSCode` 编辑器配合 `verilator` （linter）、` iStyle Formatter` （自动格式化）等插件，让编写代码变得更加智能与舒适。该方法也被我上传到网络学堂讨论区，方便同学们使用。
-
-最后有一个唯一遇到的硬件上的坑，就是七段数码管不能扫描得太快，否则无法正常显示。
-
-
+![fpga](report.assets/fpga.jpg)
 
 ## 性能分析
 
-生成比特流后，烧录进 FPGA。然后将 [仿真测试中使用的排序代码与数据](#本实验排序代码测试) 通过串口发送至 CPU。
-
-排序结束后，输出执行周期数，如下图：
-
-![fpga](report.assets/fpga.png)
-
-
-
-执行周期数与仿真相吻合。
-
-
-
-启动 MARS 仿真器，使用相同的数据和代码进行测试（注：为了能在模拟器上运行，代码的初始化部分、数据读写并不相同，但排序部分完全一致）。
-
-在排序前和排序完成的指令处下断点，通过 InstructionCounter 得到其间执行的指令情况如下图：
+启动 MARS 仿真器，使用相同的数据和代码进行测试，结果如下图（注：为了能在模拟器上运行，代码的初始化部分、数据读写并不相同，但计算最短路径的部分完全一致）。通过 MARS 中的 Tools/Instruction Statistics 得到执行的指令情况如下图：
 
 ![instr_num](report.assets/instr_num.png)
 
+仿真时，运行周期数如下图所示
 
+![clocks](report.assets/clocks.png)
 
 因此，有
 $$
-{\rm CPI}=\frac{clocks}{instr\_num}=\frac{34412}{29337}=1.173
+{\rm CPI}=\frac{clocks}{instr\_num}=\frac{8762}{8368}=1.0471
 $$
-考虑 CPU 的主频为 125.16 MHz, 故平均每秒执行指令数为
+考虑 CPU 的主频为 120.18 MHz, 故平均每秒执行指令数为
 $$
-n=\frac{freq}{{\rm CPI}}=\frac{125.16 \ {\rm M}}{1.173}=106.70 \ {\rm M}
+n=\frac{freq}{{\rm CPI}}=\frac{120.18 \ {\rm M}}{1.0471}=114.77 \ {\rm M}
 $$
 
 
@@ -780,82 +738,67 @@ $$
 
 ## 思想体会
 
-本次实验让我对 MIPS 流水线 CPU 有了更深入的了解，因为它使得我对 CPU 任何工作细节（该项目涉及的层面）都必须完全掌握。从单周期开始，一步一步地构建一个流水线 CPU：流水线寄存器、转发、冒险、中断、异常再到外设等等，步步为营。当看见烧在板子上的 CPU 能够跑着各种汇编程序时，还是非常有成就感的。
 
-在开始本项目前，我先花了不少时间调研开发 verilog 项目的最佳环境，最终配置了一套舒适的开发工具，并且在之后的过程中，不断增加自动化小工具。事实证明，磨刀不误砍柴工。编写代码是个漫长而略微艰辛的过程，添加功能、对比性能、解决 bug，都需要投入大量的精力与思考，而这些辅助性的工作还是减轻了不少负担。
+在本次实验中，我深刻体会到了硬件调试的艰辛和乐趣。我不仅对 MIPS 流水线 CPU 有了更深入的了解，也锻炼了我的编程能力和解决问题的能力。
 
-最后优化 CPU 的主频也是一个惊喜与疑惑交织的过程，好在结果还不错的样子。验收的时候，我对那块板子还有一点不舍，看来是被虐出感情了。
-
-在最后，还是要感谢老师和助教的辛苦付出，让我们能够收获满满！
+首先，我在构建流水线 CPU 的过程中，对 CPU 的工作原理有了更深入的了解。从单周期开始，一步一步地添加功能和优化性能，我体会到了流水线寄存器、转发、冒险、中断、异常、外设等等概念的实际意义和作用。我也学会了如何编写各种汇编程序来测试 CPU 的功能和性能。当看见烧在板子上的 CPU 能够跑着各种汇编程序时，我感到非常自豪。
 
 
+其次，我在硬件调试的过程中，遇到了许多问题，有些是代码逻辑上的错误，有些是电路结构上的问题，有些是板子本身的特性。每一个问题都需要我仔细分析、查找资料、尝试修改、反复测试。在这个过程中，我学会了如何使用 clk_gen.v 分频来实现 ssd 数据的轮换，如何避免多线程冲突的问题，如何适应不同板子的特性等等。我也发现了一些之前没有注意到的细节，例如某些变量在多个 always 操作里面都改变了值，导致电路结构中有的线是断的。当我最终解决了所有的问题，看到板子上成功显示出了数字，我感到非常有成就感。
+
+最后，我在本项目中，也提高了我的编程能力和开发效率。在开始本项目前，我先花了不少时间调研开发 verilog 项目的最佳环境，最终配置了一套舒适的开发工具，并且在之后的过程中，不断增加自动化小工具。这些工具让我能够更方便地编写代码、进行仿真、查看波形、烧录板子等等。我也学会了如何使用 git 等版本控制工具来管理代码和文档。
+
+总之，本次实验让我收获满满！在此，还要感谢老师和助教的辛苦付出和指导！
 
 ## 文件清单
 
-要在 Vivado 2018.3 中建立该项目，只需要执行 `Tools -> Run Tcl Script...` ，选择 `mips_pipeline_cpu.tcl`。然后项目会自动生成在该目录的子文件夹 `vivado_project` 中。更多信息请查看 `README.md`。
-
+需要在 Vivado 2017.4 中建立该项目。
 
 
 文件清单如下：
 
->mips_pipeline_cpu
->├─ .gitignore
->├─ .vscode
->│    └─ settings.json
->├─ README.md
->├─ mips_pipeline_cpu.tcl
->├─ src
->│    ├─ constraints
->│    │    └─ ego1.xdc
->│    ├─ designs
->│    │    ├─ cpu
->│    │    │    ├─ ALU.v
->│    │    │    ├─ ALUControl.v
->│    │    │    ├─ BranchTest.v
->│    │    │    ├─ Bus.v
->│    │    │    ├─ CPU.v
->│    │    │    ├─ Control.v
->│    │    │    ├─ DataMemory.v
->│    │    │    ├─ ForwardControl.v
->│    │    │    ├─ HazardUnit.v
->│    │    │    ├─ InstructionMemory.v
->│    │    │    ├─ PCOnBreak.v
->│    │    │    ├─ ProgramCounter.v
->│    │    │    ├─ RegisterFile.v
->│    │    │    └─ pipeline_registers
->│    │    │           ├─ EX_MEM_Reg.v
->│    │    │           ├─ ID_EX_Reg.v
->│    │    │           ├─ IF_ID_Reg.v
->│    │    │           └─ MEM_WB_Reg.v
->│    │    ├─ external_devices
->│    │    │    ├─ LED.v
->│    │    │    ├─ SSD.v
->│    │    │    ├─ SysTick.v
->│    │    │    ├─ Timer.v
->│    │    │    ├─ UART.v
->│    │    │    ├─ UART_Rx.v
->│    │    │    └─ UART_Tx.v
->│    │    └─ top.v
->│    └─ testbenches
->│           ├─ CPU_tb_behav.wcfg
->│           ├─ CPU_tb_insertion_sort.v
->│           ├─ CPU_tb_insertion_sort_behav.wcfg
->│           ├─ CPU_with_UART_tb.v
->│           ├─ CPU_with_UART_tb_behav.wcfg
->│           ├─ DataMemory_tb.v
->│           ├─ RegisterFile_tb.v
->│           ├─ assembly
->│           │    ├─ insertion_sort.hex
->│           │    ├─ insertion_sort.s
->│           │    ├─ insertion_sort_data.hex
->│           │    ├─ timer.hex
->│           │    ├─ timer.s
->│           │    ├─ uart.hex
->│           │    ├─ uart.s
->│           │    └─ uart_data.hex
->│           └─ cpu_tb.v
->└─ utilities
->       ├─ hex2serial.py
->       ├─ hex_num_reader.py
->       └─ rnd_num_gen.py
+>Pipeline   
+>├─ Report.pdf  
+>├─ src  
+>│    ├─ constraints  
+>│    │    └─ top.xdc  
+>│    ├─ designs  
+>│    │    ├─ cpu  
+>│    │    │    ├─ ALU.v  
+>│    │    │    ├─ ALUControl.v   
+>│    │    │    ├─ BranchTest.v    
+>│    │    │    ├─ Bus.v   
+>│    │    │    ├─ clk_gen.v   
+>│    │    │    ├─ CPU.v    
+>│    │    │    ├─ Control.v  
+>│    │    │    ├─ DataMemory.v    
+>│    │    │    ├─ ForwardControl.v  
+>│    │    │    ├─ HazardUnit.v  
+>│    │    │    ├─ InstructionMemory.v  
+>│    │    │    ├─ PCOnBreak.v  
+>│    │    │    ├─ ProgramCounter.v  
+>│    │    │    ├─ RegisterFile.v  
+>│    │    │    └─ pipeline_registers  
+>│    │    │           ├─ EX_MEM_Reg.v   
+>│    │    │           ├─ ID_EX_Reg.v  
+>│    │    │           ├─ IF_ID_Reg.v   
+>│    │    │           └─ MEM_WB_Reg.v  
+>│    │    ├─ external_devices  
+>│    │    │    ├─ LED.v  
+>│    │    │    ├─ SSD.v  
+>│    │    │    ├─ SysTick.v  
+>│    │    │    ├─ Timer.v  
+>│    │    │    ├─ UART.v  
+>│    │    │    ├─ UART_Rx.v  
+>│    │    │    └─ UART_Tx.v  
+>│    │    └─ top.v  
+>│    └─ testbenches  
+>│           ├─ test_cpu_behav.wcfg    
+>│           ├─ assembly  
+>│           │    ├─ sssp_mybellman.txt  
+>│           │    ├─ sssp_mybellman.asm    
+>│           │    └─ sssp_mybellman.hex  
+>│           └─ test_cpu.v   
+>└─ utilities  
+>       └─ format_insturction.py  
 
